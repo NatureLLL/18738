@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+	<!-- remove role="navigation" -->
+	{% block navbar %}
+  <nav class="blue-grey lighten-2">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Blog</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{% url 'profile' user.id %}">{{user.username}}</a></li>
+        <li><a href="{% url 'home' %}">Global</a></li>
+        <li><a href="{% url 'following_stream' %}">Following stream</a></li>
+        <li><a href="{% url 'logout' %}">Log out</a></li>
+      </ul>
+    </div>
+  </nav>
+  <br>
+  {% endblock %}
+
+  <!-- make a post -->
+  <div class="container">
+  	{% block make_post %}
+    {% endblock %}
+
+    <div class="row">
+    {% block display_profile %}
+    {% endblock %}
+
+    {% block display_posts %}
+		<br>
+        <!-- <div id="display_posts"> -->
+        <span id="display">  
+        {% for post in posts %}
+
+       	<div>
+          <div class="left">       
+            <img class="profile" src="{{ post.user.profile.avatar.url }}" alt="pofile photo">          
+          </div>
+
+          <div class="left">
+            <a class="share" href="{% url 'profile' post.user.id %}">{{post.user.username}}</a>  <br>
+            <x-small>{{ post.time|date:'Y-m-d H:i' }}</x-small>
+          </div>
+        </div>
+        
+        <br><br>
+
+
+          <div >
+            <p>{{post.content}}</p>
+          </div>
+
+          <div >
+             <a class="share waves-effect waves-teal btn-flat" id="{{post.id}}"><i class="material-icons share">comment</i>Comment</a>
+          </div>
+
+          <!-- display comments -->
+          <div id="div-post-{{post.id}}" class="col s12 solid">
+            {% if post.comments_post.all %}
+            <hr>
+            {% endif %}
+            {% for comment in post.comments_post.all %}
+              <div>
+                <div class="left">       
+                  <img class="profile" src="{{ comment.user.profile.avatar.url }}" alt="pofile photo">          
+                </div>
+
+                <div class="left">
+                  <a class="share" href="{% url 'profile' comment.user.id %}">{{comment.user.username}}</a>  <br>
+                  <x-small>{{ comment.time|date:'Y-m-d H:i' }}</x-small>
+                </div>
+              </div>
+        
+              <br><br>
+
+              <div >
+                <p>{{comment.content}}</p>
+              </div>
+              <hr>
+      
+            {% endfor %}
+          </div>
+
+      <br><br><hr>
+
+      {% endfor %}
+    </span>
+    <input type="hidden" id="last_modified" value="{{last_modified}}">
+<form id="comment_form" action="{% url 'comment' %}" method="POST">
+              {% for field in form.visible_fields %}
+            {{field}}
+            <p class="err_msg"> {{field.errors}} </p>
+          {% endfor %}
+      
+          {% for field in form.hidden_fields %}
+          {{field}}
+          {% endfor %}
+          <button type="submit">submit</button>
+          {% csrf_token %}
+          <br>
+    </form>
+      <!-- </div> -->
+   	{% endblock %}
+    </div>
+       
+  </div>
+{% endblock %}

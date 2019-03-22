@@ -1,0 +1,15 @@
+{% extends "base_form.html" %}
+
+{% block title %}Registration{% endblock %}
+  
+  {% block account_form %}
+    <h1 class="header center teal-text text-lighten-2">Welcome to registration!</h1>
+    
+      <form class="view-form" action="{% url 'register' %}" method="POST">
+        {{block.super}}
+      
+      </form>
+
+  {% endblock %}
+
+  {% block button_name %}Create Account{% endblock %}

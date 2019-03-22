@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<div class="center">
+{% for error in form.non_field_errors %}
+<p class="err_msg">
+{{ error }}</p>
+{% endfor %}
+</div>
+
+<div class="container">
+	<br><br>
+	{% block account_form %}
+		{% for field in form.visible_fields %}
+            {{field.label_tag}}
+            {{field}}
+            <p class="err_msg"> {{field.errors}} </p>
+        
+        {% endfor %}
+    
+        
+        {% for field in form.hidden_fields %}
+        {{field}}
+        {% endfor %}
+        {% csrf_token %}
+
+        <div class="row center">
+            <button type="submit" class="btn-xl waves-effect waves-light teal lighten-1">{% block button_name %}{% endblock %}</button> 
+        </div>
+
+	{% endblock %}
+
+	<br><br>
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base_display.html" %}
+
+{% block title %}Profile{% endblock %}
+
+  <!--   Profile   -->
+    {% block display_profile %}
+    
+      <div class="col s5 solid">
+        <br>
+        <div>
+          <div class="left">        
+            <img class="profile" src="{{ profile.avatar.url }}" alt="pofile photo">
+          </div>
+          <div class="left"><a class="share" href="{% url 'profile' profile.user.id %}">{{profile.user.username}}</a></div>
+          
+          <br><br>
+          <div>
+            <p><i class="material-icons left">person_outline</i>Name: {{profile.user.first_name}} {{profile.user.last_name}}</p>
+            <p><i class="material-icons left">location_on</i>From: Suriname</p>
+            {% load static %}
+            <p> &nbsp;<img class="emoji" src="{% static 'images/birthday.png' %}" alt="birth">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Age: {{profile.age}}</p>
+            <p><i class="material-icons left">school</i>School: Carnegie Mellon University</p>
+            <p>&nbsp;bio: &nbsp;&nbsp;{{profile.bio}}</p>
+            {% if not identity %}
+            {% if not follow %}
+            <a href = "{% url 'follow' profile.user.id %}"> Follow</a>
+            {% else %}
+            <a href = "{% url 'unfollow' profile.user.id %}"> Unfollow</a>
+            {% endif %}
+            {% else %}
+            <a href = "{% url 'edit_profile' %}"> Edit profile</a>
+            <br><br>
+            <a href = "{% url 'send_reset_password_email' %}"> Reset Password </a>
+            {% endif %}
+          </div>       
+        </div>
+      </div> 
+
+  {% endblock %}
+
+        {% block display_posts %}
+        <div class="col s6 solid" id="prof2">
+          {{block.super}}
+        </div>
+        {% endblock %}

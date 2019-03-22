@@ -1,0 +1,188 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+/*
+.post_ul {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+}
+.post_li {
+    display: inline-block;
+    flex: 0 1 auto;  
+    list-style-type: none;
+    top: 1.25em;
+}
+*/
+
+form#comment_form {
+display:none;
+}
+
+ul {
+    text-align: justify;
+}
+ul:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+ul:before {
+    content: '';
+    display: block;
+    margin-top: -1.25em;
+}
+li {
+    display: inline-block;
+    margin-right: -.25em;
+    position: relative;
+    top: 1.25em;
+}
+
+.err_msg {
+  color: red;
+}
+#err_msg1 {
+  color: red;
+}
+#prof1 {
+  margin-left: 20px;
+  
+}
+#prof2 {
+  margin-left: 10px;
+  
+}
+.solid {
+    border: 0.7px solid;
+    border-color: #DCDCDC;
+    padding: 50px;
+}
+.proff {
+  margin-left: 30px;
+}
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 10px;
+  }
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 10px;
+}
+.profile {
+  width: 42px; 
+  height: 42px;
+  margin-right: 5px
+}
+.post {
+  width: 200px; 
+  height: 200px;
+}
+.emoji {
+width: 16px;
+height: 16px;
+}
+.moment {
+    height: 80px;
+    width: 100%;
+    resize: none;
+}
+div.left {
+  float: left;
+}
+x-small {
+  font-size: 10px;
+  font-weight: lighter;
+  color: grey;
+}
+hr {
+  color: #DCDCDC;
+  border-style: inset;
+  border-width: 0.3px;
+
+  /*border: 0;*/
+  /*clear:both;*/
+/*  display:block;*/
+  /*width: 96%;               */
+  /*height: 1px;*/
+
+  margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.share {
+  color: darkslategrey;
+  font-size: 12px;
+}
+.btn-xl {
+      text-align: center;
+      border-radius: 8px;
+      font-size: 20px;
+      padding: 15px 32px;
+      width: 50%;
+      color: white;
+    }
+
+.underline {
+  text-decoration: underline;
+  color: black;
+}
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.sidenav-trigger {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}

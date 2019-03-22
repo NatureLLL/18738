@@ -1,0 +1,13 @@
+{
+	"post": "{{post}}",
+	"id": {{post.id}}, 
+	"content": "{{post.content}}",
+	"time": "{{post.time|date:'Y-m-d H:i'}}",
+	"user_name": "{{post.user.username}}",
+	"profile_url": "{{ post.user.profile.avatar.url }}",
+	"user_id": {{post.user.id}},
+	"comments": [
+    {% for comment in post.comments_post.all %}{% include 'comment.json' %}{% if not forloop.last %}, {% endif %}{% endfor %}
+  ]
+
+}

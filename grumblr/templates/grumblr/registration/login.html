@@ -1,0 +1,36 @@
+{% extends "base_form.html" %}
+
+{% block title %}Login{% endblock %} 
+ 
+  {% block account_form %}
+    <h1 class="header center teal-text text-lighten-2">Log in</h1>
+    <div class="row">
+      <form class="col s12" action="{% url 'login' %}" method="POST">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="username" type="text" name="username" placeholder="User Name">         
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="password" type="password" name="password" placeholder="Password">          
+          </div>
+        </div>
+
+        <div class="row center">
+        <button type="submit" class="btn-xl waves-effect waves-light teal lighten-1">Log in</button>    
+        </div>
+    
+        <div class="row center">
+          <a href="{% url 'register' %}" class="underline">Sign up now!</a>
+        </div>
+
+        <input type="hidden" name="next" value="{{ next }}">
+        {% csrf_token %}
+      </form>
+    </div>
+  {% endblock %}
+
+
+

@@ -1,0 +1,6 @@
+{
+	"posts": [
+    {% for post in posts %}{% include 'post.json' %}{% if not forloop.last %}, {% endif %}{% endfor %}
+  ],
+	"last_modified": "{{last_modified|date:"c"}}"
+}

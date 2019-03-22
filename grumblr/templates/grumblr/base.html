@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{% block title %}{% endblock %}</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  {% load static %}
+  <link href="{% static 'grumblr/materialize.css' %}" type="text/css" rel="stylesheet" media="screen"/>
+  <link href="{% static 'grumblr/style.css' %}" type="text/css" rel="stylesheet" media="screen"/>
+  <script src="{% static 'grumblr/jquery-3.1.1.min.js' %}" type="text/javascript"></script>
+  
+
+</head>
+<body>
+	{% block content %}
+  {% endblock %}  
+  <script src="{% static 'grumblr/grumblr.js' %}" type="text/javascript"></script>
+  <script>var static_profile_url = "profile/";</script>
+  </body>
+</html>

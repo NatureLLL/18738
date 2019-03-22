@@ -1,0 +1,63 @@
+{% extends "base_display.html" %}
+
+{% block title %}Global{% endblock %}
+
+  <!-- make a post -->
+    {% block make_post %}
+    <div class="row center">
+      {% if errors %}
+        <p class="err_msg">{{errors}}</p>
+        {% endif %}
+      <div class="col s12 solid">
+        
+        <div class="col-25">
+          <br>
+         
+        <img class="profile" src="{{ profile.avatar.url }}" alt="pofile photo">
+
+        <div class="desc"><a class="share" href="{% url 'profile' user.id %}">{{user.username}}</a></div>
+        <br>
+        </div>
+        <br>
+        <form class="col-75" id="moment_form" action="{% url 'add' %}" method="POST">
+          {% for field in form.visible_fields %}
+            
+            {{field}}
+            <p class="err_msg"> {{field.errors}} </p>
+        
+          {% endfor %}
+      
+          
+          {% for field in form.hidden_fields %}
+          {{field}}
+          {% endfor %}
+       
+          <div class="col-75">
+            <ul>
+              <li>
+              <a class="waves-effect blue-grey lighten-2 btn"><i class="material-icons left">camera_alt</i>Photos/Video</a>
+              </li>
+              <li>
+              <a class="waves-effect blue-grey lighten-2 btn"><i class="material-icons left">insert_emoticon</i>Emotion</a>
+              </li>
+              <li>
+              <button type="submit" class="waves-effect blue-grey lighten-2 btn">Share</button>
+              </li>
+            </ul>
+          </div>
+        {% csrf_token %}
+        </form>
+        <br>
+      </div> 
+      <br>     
+    </div>
+    {% endblock %}
+   
+   {% block display_posts %}
+    <div class="row">
+      <div class="col s12 solid">
+        {{ block.super }}
+      </div>
+    </div>
+    {% endblock %}
+  

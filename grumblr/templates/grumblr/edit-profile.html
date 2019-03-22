@@ -1,0 +1,12 @@
+{% extends "base_form.html" %}
+
+{% block title %}Edit profile{% endblock %}
+
+  <!--   Profile   -->
+    {% block account_form %}
+      <form class="view-form" action="{% url 'edit_profile' %}" enctype="multipart/form-data" method="POST">
+
+        {{block.super}}
+      </form>
+    {% endblock %}
+    {% block button_name %}Submit{% endblock %}

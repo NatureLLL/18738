@@ -1,0 +1,10 @@
+{
+	"id": {{comment.id}}, 
+	"content": "{{comment.content}}",
+	"time": "{{comment.time|date:'Y-m-d H:i'}}",
+	"user_name": "{{comment.user.username}}",
+	"profile_url": "{{ comment.user.profile.avatar.url }}",
+	"user_id": {{comment.user.id}},
+	"post_id": {{comment.post.id}}
+
+}
