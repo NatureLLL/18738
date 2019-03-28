@@ -2,17 +2,19 @@
 
 {% block title %}Global{% endblock %}
 
+
   <!-- make a post -->
+<!--
     {% block make_post %}
     <div class="row center">
       {% if errors %}
         <p class="err_msg">{{errors}}</p>
         {% endif %}
       <div class="col s12 solid">
-        
+
         <div class="col-25">
           <br>
-         
+
         <img class="profile" src="{{ profile.avatar.url }}" alt="pofile photo">
 
         <div class="desc"><a class="share" href="{% url 'profile' user.id %}">{{user.username}}</a></div>
@@ -21,17 +23,17 @@
         <br>
         <form class="col-75" id="moment_form" action="{% url 'add' %}" method="POST">
           {% for field in form.visible_fields %}
-            
+
             {{field}}
             <p class="err_msg"> {{field.errors}} </p>
-        
+
           {% endfor %}
-      
-          
+
+
           {% for field in form.hidden_fields %}
           {{field}}
           {% endfor %}
-       
+
           <div class="col-75">
             <ul>
               <li>
@@ -48,10 +50,11 @@
         {% csrf_token %}
         </form>
         <br>
-      </div> 
-      <br>     
+      </div>
+      <br>
     </div>
     {% endblock %}
+    -->
    
    {% block display_posts %}
     <div class="row">

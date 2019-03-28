@@ -9,11 +9,13 @@
 	{% block navbar %}
   <nav class="blue-grey lighten-2">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Blog</a>
+      <a id="logo-container" href="#" class="brand-logo">Home of Athlete</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="{% url 'profile' user.id %}">{{user.username}}</a></li>
-        <li><a href="{% url 'home' %}">Global</a></li>
-        <li><a href="{% url 'following_stream' %}">Following stream</a></li>
+          <li><a href="{% url 'indiv_statistics' %}">Individual Statistics</a></li>
+{#        <li><a href="{% url 'home' %}">Global</a></li>#}
+{#        <li><a href="{% url 'following_stream' %}">Following stream</a></li>#}
+          <li><a href="{% url 'statistics' %}">Statistics</a></li>
         <li><a href="{% url 'logout' %}">Log out</a></li>
       </ul>
     </div>
@@ -23,6 +25,7 @@
 
   <!-- make a post -->
   <div class="container">
+
   	{% block make_post %}
     {% endblock %}
 

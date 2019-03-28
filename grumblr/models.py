@@ -41,3 +41,11 @@ class Profile(models.Model):
 	def get_followings(self):
 		followings = self.user.followings.all()
 		return followings
+
+class Record(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='record')
+	hit1 = models.IntegerField(default=0)
+	hit2 = models.IntegerField(default=0)
+	hit3 = models.IntegerField(default=0)
+	hit4 = models.IntegerField(default=0)
+

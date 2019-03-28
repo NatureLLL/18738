@@ -13,6 +13,7 @@ from django.core.mail import send_mail
 from django.db import transaction
 from django.views.decorators.csrf import ensure_csrf_cookie
 import datetime
+import random
 
 from grumblr.models import *
 from grumblr.forms import *
@@ -21,6 +22,40 @@ from django.contrib import messages
 # Create your views here.
 from django.utils import timezone
 from django.urls import reverse
+
+@login_required
+def get_statistics(request):
+    context = {'records': Record.objects.all()}
+    return render(request, 'grumblr/statistics.html', context)
+
+@login_required
+def get_indiv_statistics(request):
+    context = {'records': Record.objects.all()}
+    return render(request, 'grumblr/partial_stats.html', context)
+
+@login_required
+def fake_data(request):
+    for i in range(7):
+        hit = [random.randint(1,10),random.randint(1,10),random.randint(1,10),random.randint(1,10)]
+        # hit = [3,4,5,2]
+        new_record = Record(user=request.user, hit1=int(hit[0]), hit2=int(hit[1]), hit3=int(hit[2]), hit4=int(hit[3]))
+        new_record.save()
+    records = Record.objects.filter(user__exact=request.user)
+    context = {'records': records}
+    return render(request, 'records.json', context, content_type='application/json')
+
+@login_required
+def reset_data(request):
+    Record.objects.all().delete()
+    records = Record.objects.filter(user__exact=request.user)
+    context = {'records': records}
+    return render(request, 'records.json', context, content_type='application/json')
+
+@login_required
+def get_data(request):
+    records = Record.objects.filter(user__exact=request.user)
+    context = {'records': records}
+    return render(request, 'records.json', context, content_type='application/json')
 
 @login_required
 @ensure_csrf_cookie  # Gives CSRF token for later requests.

@@ -20,6 +20,22 @@
     top: 1.25em;
 }
 */
+.button {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 8px 4px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  max-width: 100%;
+}
 
 form#comment_form {
 display:none;

@@ -1,0 +1,8 @@
+{
+	"id": {{record.id}},
+	"user_id": {{record.user.id}},
+    "hit1": {{record.hit1}},
+	"hit2": {{record.hit2}},
+	"hit3": {{record.hit3}},
+	"hit4": {{record.hit4}}
+}

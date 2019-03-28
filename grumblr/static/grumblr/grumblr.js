@@ -1,14 +1,14 @@
-function updatePosts() {
-    var d = $("#display");
-    var last_modified = d.data("last_modified");
-    console.log(last_modified);
-    $.get("/grumblr/get-posts/" + last_modified)
-        .done(function (data) {
-            update(data);
-        }).catch((a, b, c) => {
-        console.log('err', a, b, c)
-    });
-}
+// function updatePosts() {
+//     var d = $("#display");
+//     var last_modified = d.data("last_modified");
+//     console.log(last_modified);
+//     $.get("/grumblr/get-posts/" + last_modified)
+//         .done(function (data) {
+//             update(data);
+//         }).catch((a, b, c) => {
+//         console.log('err', a, b, c)
+//     });
+// }
 
 
 function populateList() {
@@ -122,7 +122,7 @@ $(document).ready(function () {
     // setup
     populateList();
 
-    setInterval(updatePosts, 5000);
+    // setInterval(updatePosts, 5000);
 
     $("#moment_form").trigger("reset");
     $("#comment_form").trigger("reset");

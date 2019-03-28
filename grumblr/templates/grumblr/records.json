@@ -1,0 +1,5 @@
+{
+	"records": [
+    {% for record in records %}{% include 'record.json' %}{% if not forloop.last %}, {% endif %}{% endfor %}
+  ]
+}
